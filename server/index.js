@@ -1,9 +1,10 @@
+require('dotenv').config();
 const express = require('express')
 const cors = require('cors')
 const { MongoClient, ServerApiVersion } = require('mongodb')
 require('dotenv').config()
 
-const port = process.env.PORT || 9000
+const port = process.env.PORT || 5000
 const app = express()
 
 app.use(cors())
@@ -22,8 +23,19 @@ const client = new MongoClient(uri, {
 
 async function run() {
   try {
+
+    // the default route:
+    app.get('/', (req, res) => {
+      res.send('Hello from Job Nexus Server....')
+    })
+
+    // the hello routes:
+    app.get('/hello', (req, res) => {
+      res.send({message:"Hello World"});
+    })
+
     // Send a ping to confirm a successful connection
-    await client.db('admin').command({ ping: 1 })
+    // await client.db('admin').command({ ping: 1 })
     console.log(
       'Pinged your deployment. You successfully connected to MongoDB!'
     )
@@ -32,8 +44,6 @@ async function run() {
   }
 }
 run().catch(console.dir)
-app.get('/', (req, res) => {
-  res.send('Hello from SoloSphere Server....')
-})
+
 
 app.listen(port, () => console.log(`Server running on port ${port}`))
