@@ -5,7 +5,7 @@ import JobCard from './JobCard'
 
 const TabCategories = () => {
   return (
-    <Tabs>
+    <Tabs >
       <div className=' container px-6 py-10 mx-auto'>
         <h1 className='text-2xl font-semibold text-center text-gray-800 capitalize lg:text-3xl '>
           Browse Jobs By Categories
@@ -16,15 +16,17 @@ const TabCategories = () => {
           Development, Graphics Design and Digital Marketing. Browse them by
           clicking on the tabs below.
         </p>
-        <div className='flex items-center justify-center'>
+        <div className=''>
           <TabList>
             <Tab>Web Development</Tab>
             <Tab>Graphics Design</Tab>
             <Tab>Digital Marketing</Tab>
           </TabList>
         </div>
+
+        {/* web development section */}
         <TabPanel>
-          <div className='grid grid-cols-1 gap-8 mt-8 xl:mt-16 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
+          <div className='grid grid-cols-1 gap-8 mt-8 xl:mt-16 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 '>
             <JobCard />
             <JobCard />
             <JobCard />
@@ -32,6 +34,7 @@ const TabCategories = () => {
           </div>
         </TabPanel>
 
+        {/* graphics design section */}
         <TabPanel>
           <div className='grid grid-cols-1 gap-8 mt-8 xl:mt-16 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
             <JobCard />
@@ -39,6 +42,7 @@ const TabCategories = () => {
           </div>
         </TabPanel>
 
+        {/* digital marketing section */}
         <TabPanel>
           <div className='grid grid-cols-1 gap-8 mt-8 xl:mt-16 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
             <JobCard /> <JobCard />
